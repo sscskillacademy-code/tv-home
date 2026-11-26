@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- darker at the bottom, behind the apps -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:angle="270" android:startColor="#4D000000" android:centerColor="#14000000" android:endColor="#B3000000" />
+        </shape>
+    </item>
+    <!-- darker on the left, behind the clock -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:angle="0" android:startColor="#73000000" android:centerColor="#00000000" android:endColor="#33000000" />
+        </shape>
+    </item>
+    <!-- soft corners -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:type="radial" android:gradientRadius="110%p" android:centerX="0.5" android:centerY="0.45" android:startColor="#00000000" android:endColor="#8C000000" />
+        </shape>
+    </item>
+</layer-list>

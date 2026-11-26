@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- the room: theme light + soft light-painting of the selected app -->
+    <com.charan.glasshome.BackdropView
+        android:id="@+id/backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/vignette" />
+
+    <com.charan.glasshome.GrainView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 48dp / 30dp margins keep everything inside the part of the screen every TV shows -->
+    <FrameLayout
+        android:id="@+id/homeContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingStart="48dp"
+        android:paddingTop="30dp"
+        android:paddingEnd="48dp"
+        android:paddingBottom="26dp">
+
+        <!-- top left: greeting + weather -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/greeting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.24"
+                android:textColor="#C7F4EFE6"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/weatherIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="☁️"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/weatherTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:includeFontPadding="false"
+                    android:text="--°"
+                    android:textColor="#F4EFE6"
+                    android:textSize="32sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/weatherDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fetching the weather…"
+                        android:textColor="#E6F4EFE6"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/weatherHiLo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#99F4EFE6"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- top centre: "now playing" mini player (added at runtime while music plays) -->
+        <FrameLayout
+            android:id="@+id/miniSlot"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginStart="44dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:padding="6dp" />
+
+        <!-- top right: Wi-Fi / Bluetooth / Sleep, then the floating clock with time and date under it -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="-6dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/statusRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="4dp" />
+
+            <com.charan.glasshome.AnalogClockView
+                android:id="@+id/analogClock"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/timeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8dp"
+                android:includeFontPadding="false"
+                android:textColor="#F4EFE6"
+                android:textSize="44sp" />
+
+            <TextView
+                android:id="@+id/dateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:letterSpacing="0.18"
+                android:textColor="#B8F4EFE6"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- title card: chapter marker, the selected app's name in serif, a hint -->
+        <LinearLayout
+            android:layout_width="580dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_marginBottom="184dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/heroEyebrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.3"
+                android:textColor="#99F4EFE6"
+                android:textSize="13sp" />
+
+            <com.charan.glasshome.HeroTextView
+                android:id="@+id/heroTitle"
+                android:layout_width="match_parent"
+                android:layout_height="96dp"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:textColor="#F4EFE6"
+                android:textSize="80sp" />
+
+            <TextView
+                android:id="@+id/heroHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#B8F4EFE6"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <!-- the glass shelf: apps scroll INSIDE it and fade at its edges -->
+        <FrameLayout
+            android:id="@+id/shelf"
+            android:layout_width="match_parent"
+            android:layout_height="168dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/glass_shelf">
+
+            <com.charan.glasshome.ShelfScrollView
+                android:id="@+id/appScroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadingEdgeLength="56dp"
+                android:requiresFadingEdge="horizontal"
+                android:scrollbars="none">
+
+                <!-- the focus halo is added behind the row at runtime -->
+                <FrameLayout
+                    android:id="@+id/rowFrame"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clipChildren="false">
+
+                    <!-- tiles may grow past the row's padding; the shelf itself does the clipping -->
+                    <LinearLayout
+                        android:id="@+id/appRow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="30dp"
+                        android:paddingEnd="8dp" />
+                </FrameLayout>
+            </com.charan.glasshome.ShelfScrollView>
+        </FrameLayout>
+    </FrameLayout>
+</FrameLayout>

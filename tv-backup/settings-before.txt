@@ -1,0 +1,9 @@
+﻿secure screensaver_enabled 1
+secure screensaver_components null
+secure screensaver_activate_on_sleep 1
+secure screensaver_activate_on_dock 1
+global window_animation_scale 1.0
+global transition_animation_scale 1.0
+global animator_duration_scale null
+global device_name Charanjeet's TV
+system screen_off_timeout 900000

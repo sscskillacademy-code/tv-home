@@ -1,0 +1,13 @@
+# build output
+.gradle/
+build/
+app/build/
+build-manual/
+*.apk
+*.idsig
+
+# this computer only
+local.properties
+.idea/
+.vscode/
+*.iml

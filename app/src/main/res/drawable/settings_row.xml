@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- the row itself is focused (action rows) -->
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="18dp" />
+            <solid android:color="#1FF4EFE6" />
+            <stroke android:width="1.5dp" android:color="#66F4EFE6" />
+        </shape>
+    </item>
+    <!-- something inside the row is focused (text fields, colour swatches) -->
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="18dp" />
+            <solid android:color="#1FF4EFE6" />
+            <stroke android:width="1.5dp" android:color="#66F4EFE6" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="18dp" />
+            <solid android:color="#0AF4EFE6" />
+        </shape>
+    </item>
+</selector>
